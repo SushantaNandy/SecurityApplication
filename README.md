@@ -9,7 +9,7 @@ This project covers the basic SpringBoot appliaction having the below files:
 4. Created a repo parallel to it to store or fetch data from db (UserRepository).
 5. Created a UserService to load User By UserName else throws an runtime exception(ResourceNotFoundException).
 
-![InternalFlowOfSpringSecurity](images\InternalFlowOfSpringSecurity.jpeg)
+![InternalFlowOfSpringSecurity](images/InternalFlowOfSpringSecurity.jpeg)
 
 ## API Reference
 

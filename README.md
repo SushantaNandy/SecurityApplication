@@ -5,6 +5,12 @@ This project covers the basic SpringBoot appliaction having the below files:
 
 1. Added a spring security feature to protect user from csrf and enable login and logout by default
 2. Self configure login and logout 
+3. Created a User Entity which implements UserDetails(spring security) to grand authority, getPassword and username.
+4. Created a repo parallel to it to store or fetch data from db (UserRepository).
+5. Created a UserService to load User By UserName else throws an runtime exception(ResourceNotFoundException).
+
+![InternalFlowOfSpringSecurity](C:\Users\User\Downloads\InternalFlowOfSpringSecurity.jpeg)
+
 
 
 ## API Reference

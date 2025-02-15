@@ -15,7 +15,8 @@ This project covers the basic SpringBoot appliaction having the below files:
 9. Used formLogin() that loads the FormLoginConfigure class that loads login page to authenticate based on username and password.
 10. We have use csrf protection and for now we have remove session based authentification and made the session STATELESS.
 11. All the above feature added in class WebSecureConfig.
-12. 
+12. Define the jwt secret key in application.properties and used it in JwtService class as a Secret Key (cryptographic key used for symmetric encryption algorithms (e.g., AES, DES, HMAC) ) which is further build in token generation where it is used for signing for token creation.
+13. 
 
 ![InternalFlowOfSpringSecurity](SecurityApplication/src/main/resources/static/images/InternalFlowOfSpringSecurity.jpeg)
 ![DetailedFlowOfSpringSecurity](SecurityApplication/src/main/resources/static/images/zommedFlow.jpeg)

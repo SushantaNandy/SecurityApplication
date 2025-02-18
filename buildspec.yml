@@ -7,7 +7,8 @@ phases:
   build:
     commands:
       - echo Building, Testing and packaging the application...
-      - mvn package -DskipTests
+      - mvn package -DskipTests || { echo "Maven build failed!"; exit 1; }
+      - ls -R target/  # List files in target directory
   post_build:
     commands:
       - echo Build, Testing and packaging completed.

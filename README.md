@@ -16,32 +16,37 @@ This project covers the basic SpringBoot appliaction having the below files:
 10. We have use csrf protection and for now we have remove session based authentification and made the session STATELESS.
 11. All the above feature added in class WebSecureConfig.
 12. Define the jwt secret key in application.properties and used it in JwtService class as a Secret Key (cryptographic key used for symmetric encryption algorithms (e.g., AES, DES, HMAC) ) which is further build in token generation where it is used for signing for token creation.
-13. 
-
+13. Created a signUp flow in the user service where we are encripting the password using the passwordEncoder which we have created the bean in WebSecureConfig and whatever password is there we are saving it in db is in encripted. 
+14. For the login flow we have created LoginDto for username and password, and inside a controller returning a token ResponseEntity.ok(token).
+15. For authenticating the user we are using AuthenticationManager as a bean first inside WebSecureConfig and use the AuthenticationManager in the service(UserService).
 ![InternalFlowOfSpringSecurity](SecurityApplication/src/main/resources/static/images/InternalFlowOfSpringSecurity.jpeg)
 ![DetailedFlowOfSpringSecurity](SecurityApplication/src/main/resources/static/images/zommedFlow.jpeg)
+16. Basically AuthenticationManager is an inferace and we are using UsernamePasswordAuthenticationToken class for authenticating.
+17. We have created a cookie too inside our login controller.
+18. We have created a JwtAuthFiler and inside we have SecurityContextHolder which hold the context after login which is basically our customise Security filter chain.
+19. And we have use the JwtAuthFilter inside our default filter inside our WebSecureConfig by adding addFilterBefore. 
+
 
 ## API Reference
 
-#### Create a new Post based on provided title and description in Body
+#### Create a user and saved in db
 
 ```http
-  POST http://127.0.0.1:8080/posts
+  POST http://127.0.0.1:8080/auth/signup
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `jSON body` | `string` | **Required** title and dsecription |
-
-#### Get all Posts
+| Parameter | Type     | Description                          |Return|
+| :-------- | :------- |:-------------------------------------|:---------|
+| `jSON body` | `string` | **Required** email, password and name|userDto Cointating email and name|
+#### Login user if signup already happened
 
 ```http
-  GET http://127.0.0.1:8080/posts
+  GET http://127.0.0.1:8080/auth/login
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| null      |          | **Required**. Fetch All the Posts |
+| Parameter | Type     | Description                       |Return|
+| :-------- | :------- | :-------------------------------- |:-------|
+| null      |          | **Required**. Fetch All the Posts |Token |
 
 
 #### Get all Posts based on postId
@@ -49,52 +54,10 @@ This project covers the basic SpringBoot appliaction having the below files:
 ```http
   GET http://127.0.0.1:8080/posts/{postId}
 ```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| postId    |Integer   | **Required**. Fetch Post based on the PostId|
+| Parameter | Type     | Description                                                                         |
+| :-------- | :------- |:------------------------------------------------------------------------------------|
+| postId    |Integer   | **Required**. Fetch Post based on the PostId and required a Bearer token from login |
 
-#### Get all the changes based on postId only for Admin Panel
-
-```http
-  GET http://127.0.0.1:8080/audit/post/{postId}
-```
-| Parameter | Type     | Description                                    |
-| :-------- | :------- |:-----------------------------------------------|
-| postId    |Integer   | **Required**. Fetch Changes based on the PostId|
-
-
-
-## Authors
-
-- [@sushantanandy](https://www.linkedin.com/in/sushantanandy/)
-## API Reference
-
-#### Get all items
-
-```http
-  POST http://127.0.0.1:8080/posts
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `jSON body` | `string` | **Required** title and dsecription |
-
-#### Get item
-
-```http
-  GET http://127.0.0.1:8080/posts
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| null      |          | **Required**. Fetch All the Posts |
-
-```http
-  GET http://127.0.0.1:8080/posts/{postId}
-```
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| postId    |Integer   | **Required**. Fetch Post based on the PostId|
 
 ## Authors
 

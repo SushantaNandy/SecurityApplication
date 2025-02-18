@@ -23,8 +23,13 @@ This project covers the basic SpringBoot appliaction having the below files:
 ![DetailedFlowOfSpringSecurity](SecurityApplication/src/main/resources/static/images/zommedFlow.jpeg)
 16. Basically AuthenticationManager is an inferace and we are using UsernamePasswordAuthenticationToken class for authenticating.
 17. We have created a cookie too inside our login controller.
+    ![LoginWorkFlow](SecurityApplication/src/main/resources/static/images/LoginWorkFlow.jpeg)
 18. We have created a JwtAuthFiler and inside we have SecurityContextHolder which hold the context after login which is basically our customise Security filter chain.
+    ![JwtAuthFilterControlFlow](SecurityApplication/src/main/resources/static/images/JwtAuthFilterControlFlow.jpeg)
 19. And we have use the JwtAuthFilter inside our default filter inside our WebSecureConfig by adding addFilterBefore. 
+20. To handle handleAuthenticationException we have declare it in GlobalExceptionHandler
+    ![jwtAuth](SecurityApplication/src/main/resources/static/images/jwtAuth.jpeg)
+    ![AuthenticatingWorkflowWithJwt](SecurityApplication/src/main/resources/static/images/AuthenticatingWorkflowWithJwt.jpeg)
 
 
 ## API Reference

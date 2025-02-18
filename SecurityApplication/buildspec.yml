@@ -6,10 +6,15 @@ phases:
       java: corretto21
   build:
     commands:
-      - echo Building, Testing and packaging the application...
-      - mvn clean package -DskipTests
-      - mvn package -DskipTests || { echo "Maven build failed!"; exit 1; }
-      - ls -R target/  # List files in target directory
+            - echo "Checking directory contents..."
+            - ls -la  # Print all files to debug
+            - find . -name "pom.xml"  # Locate the pom.xml file
+            - mvn clean package -DskipTests
+
+            - echo Building, Testing and packaging the application...
+            - mvn clean package -DskipTests
+            - mvn package -DskipTests || { echo "Maven build failed!"; exit 1; }
+            - ls -R target/  # List files in target directory
   post_build:
     commands:
       - echo Build, Testing and packaging completed.

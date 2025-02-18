@@ -30,6 +30,11 @@ This project covers the basic SpringBoot appliaction having the below files:
 20. To handle handleAuthenticationException we have declare it in GlobalExceptionHandler
     ![jwtAuth](SecurityApplication/src/main/resources/static/images/jwtAuth.jpeg)
     ![AuthenticatingWorkflowWithJwt](SecurityApplication/src/main/resources/static/images/AuthenticatingWorkflowWithJwt.jpeg)
+21. Instead of one token now we are using two token -> AccessToken and RefreshToken.
+22. So earlier inside JwtService we have only one method generateToken() but now we have two method one to generateAccessToken and other generateRefreshToken(but with less data compared to AccessToken).
+23. And now after loging we get two token (access+refresh).
+24. And inside AuthService we have added one more service for refreshing the token refreshToken() which is used by AuthController for POST endpoint(/refresh).
+25. Created a LoginResponseDto having values id, refreshToken and accesstoken.
 
 
 ## API Reference

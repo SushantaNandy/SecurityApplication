@@ -34,7 +34,11 @@ This project covers the basic SpringBoot appliaction having the below files:
 22. So earlier inside JwtService we have only one method generateToken() but now we have two method one to generateAccessToken and other generateRefreshToken(but with less data compared to AccessToken).
 23. And now after loging we get two token (access+refresh).
 24. And inside AuthService we have added one more service for refreshing the token refreshToken() which is used by AuthController for POST endpoint(/refresh).
-25. Created a LoginResponseDto having values id, refreshToken and accesstoken.
+25. Created a LoginResponseDto having values id, refreshToken and accesstoken. 
+26. Deployed the db in RDS.
+27. We have deployed our application under Elastic bean stalk and created a mapping for health check. Which is basically the deafault path of elasticbeanstalk.
+28. And now instead of port 8080 we can use endpoint like ex: http://security-services-env.us-east-1.elasticbeanstalk.com/auth/signup
+29. Healthcheck end point will be "/".
 
 
 ## API Reference

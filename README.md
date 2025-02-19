@@ -63,16 +63,6 @@ This project covers the basic SpringBoot appliaction having the below files:
 | null      |          | **Required**. Fetch All the Posts |Token |
 
 
-#### Get all Posts based on postId
-
-```http
-  GET http://127.0.0.1:8080/posts/{postId}
-```
-| Parameter | Type     | Description                                                                         |
-| :-------- | :------- |:------------------------------------------------------------------------------------|
-| postId    |Integer   | **Required**. Fetch Post based on the PostId and required a Bearer token from login |
-
-
 ## Authors
 
 - [@sushantanandy](https://www.linkedin.com/in/sushantanandy/)

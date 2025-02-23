@@ -73,7 +73,7 @@ public class WebSecureConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000") // Allow frontend
+                        .allowedOrigins("https://login-signup-kappa-ten.vercel.app/") // Allow frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowCredentials(true);
             }

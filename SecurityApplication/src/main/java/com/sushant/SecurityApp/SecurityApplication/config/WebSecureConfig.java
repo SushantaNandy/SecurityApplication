@@ -73,8 +73,9 @@ public class WebSecureConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://login-signup-kappa-ten.vercel.app/") // Allow frontend
+                        .allowedOrigins("https://login-signup-kappa-ten.vercel.app") // Allow frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedHeaders("Content-Type", "Authorization")
                         .allowCredentials(true);
             }
         };

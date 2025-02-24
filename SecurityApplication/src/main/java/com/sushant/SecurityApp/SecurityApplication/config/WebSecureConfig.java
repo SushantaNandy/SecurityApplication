@@ -25,8 +25,8 @@ public class WebSecureConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.
-                authorizeHttpRequests(auth->auth.
+        httpSecurity
+                .authorizeHttpRequests(auth->auth.
                         requestMatchers("/posts","/auth/**","/","/public/**").permitAll()
 //                        .requestMatchers("/posts/**").hasAnyRole("ADMIN")
                         .anyRequest().authenticated())

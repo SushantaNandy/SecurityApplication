@@ -75,7 +75,6 @@ public class WebSecureConfig {
                 registry.addMapping("/**")
                         .allowedOrigins("https://login-signup-kappa-ten.vercel.app") // Allow frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
-                        .allowedHeaders("Content-Type", "Authorization")
                         .allowCredentials(true);
             }
         };

@@ -41,7 +41,7 @@ public class UserService implements UserDetailsService {
     public UserDto signup(SignUpDto signUpDto) {
        Optional<User> user= userRepository.findByEmail(signUpDto.getEmail());
        if (user.isPresent()){
-           throw new BadCredentialsException("Username already exist with email +"+ signUpDto.getEmail());
+           throw new BadCredentialsException("Username already exist with email "+ signUpDto.getEmail());
        }
 
        User toBeCreated= modelMapper.map(signUpDto, User.class);

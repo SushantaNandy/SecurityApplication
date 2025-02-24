@@ -30,6 +30,7 @@ public class User implements UserDetails {
 
     private String name;
 
+    @Column(name = "is_eligible_login", nullable = false)
     private boolean isEligibleLogin = false;
 
     @Override

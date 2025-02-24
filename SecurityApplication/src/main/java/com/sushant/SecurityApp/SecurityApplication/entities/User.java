@@ -30,6 +30,8 @@ public class User implements UserDetails {
 
     private String name;
 
+    private boolean isEligibleLogin = false;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();

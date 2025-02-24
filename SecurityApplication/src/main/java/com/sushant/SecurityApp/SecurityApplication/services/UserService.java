@@ -30,7 +30,12 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByEmail(username).orElseThrow(()-> new BadCredentialsException("User not found by email "+username));
+        User user = userRepository.findByEmail(username).orElseThrow(()-> new BadCredentialsException("User not found by email "+username));
+        if (!user.isEligibleLogin()) {
+            throw new BadCredentialsException("Admin approval required. Please wait.");
+        }
+
+        return user;
     }
 
     public User getUserById(Long userId){
